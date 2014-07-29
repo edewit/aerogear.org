@@ -49,7 +49,7 @@ module Jekyll
     end
 
     def convert(content)
-      Asciidoctor.load(content, {:attributes => {'imagesdir' => '../'}}).render
+      Asciidoctor.load(content, :safe => 0, :attributes => {'imagesdir' => '../', 'allow-uri-read' => true}).render
     end
   end
 end

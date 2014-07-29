@@ -190,45 +190,6 @@
 	
         <tr>
             
-                <td class="name"><code>async</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-            
-            <td class="description last">If true, all operations will be simulated as asynchronous and return a promise. This is a compatibility option for the Memory and SessionLocal adapters only for 1.3.0 and will be removed in the 1.4.0 release</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
                 <td class="name"><code>recordId</code></td>
             
             
@@ -467,7 +428,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line41">line 41</a>
+        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line40">line 40</a>
     </li></ul></dd>
     
     
@@ -514,10 +475,10 @@
     
         <h5>Example</h5>
         
-    <pre class="prettyprint"><code>//Create an empty DataManager
+    <pre class="prettyprint"><code>// Create an empty DataManager
 var dm = AeroGear.DataManager();
 
-//Add a custom SessionLocal store using local storage as its storage type
+// Add a custom SessionLocal store using local storage as its storage type
 dm.add( "newStore", {
     recordId: "customID",
     storageType: "localStorage"
@@ -596,7 +557,7 @@ dm.add( "newStore", {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line87">line 87</a>
+        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line86">line 86</a>
     </li></ul></dd>
     
     
@@ -824,7 +785,7 @@ dm.add( "newStore", {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line220">line 220</a>
+        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line214">line 214</a>
     </li></ul></dd>
     
     
@@ -846,8 +807,8 @@ dm.add( "newStore", {
     
     
     <h5>Returns:</h5>
-    <ul>
-            <li>
+    
+            
 <div class="param-desc">
     A jQuery.Deferred promise
 </div>
@@ -865,28 +826,8 @@ dm.add( "newStore", {
 
 	</dd>
 </dl>
-</li>
+
         
-            <li>
-<div class="param-desc">
-    @deprecated Returns the updated data from the store
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Array</span>
-
-
-	</dd>
-</dl>
-</li>
-        </ul>
     
     
         <h5>Example</h5>
@@ -908,13 +849,17 @@ dm.save({
     title: "And Another Created Task"
 });
 
-// Remove a particular item from the store by its id
-var toRemove = dm.read()[ 0 ];
-dm.remove( toRemove.id );
+// Delete a record
+dm.remove( 1, {
+    success: function( data ) { ... },
+    error: function( error ) { ... }
+});
 
-// Remove an item from the store using the data object
-toRemove = dm.read()[ 0 ];
-dm.remove( toRemove );
+// Remove all data
+dm.remove( undefined, {
+    success: function( data ) { ... },
+    error: function( error ) { ... }
+});
 
 // Delete all remaining data from the store
 dm.remove();</code></pre>
@@ -1188,7 +1133,7 @@ dm.remove();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line133">line 133</a>
+        <a href="session-local.js.html">data-manager/adapters/session-local.js</a>, <a href="session-local.js.html#line135">line 135</a>
     </li></ul></dd>
     
     
@@ -1210,8 +1155,8 @@ dm.remove();</code></pre>
     
     
     <h5>Returns:</h5>
-    <ul>
-            <li>
+    
+            
 <div class="param-desc">
     A jQuery.Deferred promise
 </div>
@@ -1229,28 +1174,8 @@ dm.remove();</code></pre>
 
 	</dd>
 </dl>
-</li>
+
         
-            <li>
-<div class="param-desc">
-    @deprecated Returns the updated data from the store
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Array</span>
-
-
-	</dd>
-</dl>
-</li>
-        </ul>
     
     
         <h5>Example</h5>
@@ -1264,7 +1189,7 @@ dm.save({
     ...
 });
 
-//Store an array of new Tasks
+// Store an array of new Tasks
 dm.save([
     {
         title: "Task2",
@@ -1301,13 +1226,13 @@ dm.save( toUpdate );</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="AeroGear.html">AeroGear</a></li><li><a href="navigator.html">navigator</a></li></ul><h3>Modules</h3><ul><li><a href="AeroGear.Auth.html">AeroGear.Auth</a></li><li><a href="AeroGear.Crypto.html">AeroGear.Crypto</a></li><li><a href="AeroGear.DataManager.html">AeroGear.DataManager</a></li><li><a href="AeroGear.Notifier.html">AeroGear.Notifier</a></li><li><a href="AeroGear.Pipeline.html">AeroGear.Pipeline</a></li><li><a href="AeroGear.SimplePushClient.html">AeroGear.SimplePushClient</a></li><li><a href="AeroGear.UnifiedPushClient.html">AeroGear.UnifiedPushClient</a></li><li><a href="navigator.push.html">navigator.push</a></li><li><a href="navigator.setMessageHandler.html">navigator.setMessageHandler</a></li></ul><h3>Adapters</h3><ul><li><a href="AeroGear.Auth.adapters.Rest.html">Auth.adapters.Rest</a></li><li><a href="AeroGear.DataManager.adapters.IndexedDB.html">DataManager.adapters.IndexedDB</a></li><li><a href="AeroGear.DataManager.adapters.Memory.html">DataManager.adapters.Memory</a></li><li><a href="AeroGear.DataManager.adapters.SessionLocal.html">DataManager.adapters.SessionLocal</a></li><li><a href="AeroGear.DataManager.adapters.WebSQL.html">DataManager.adapters.WebSQL</a></li><li><a href="AeroGear.Notifier.adapters.SimplePush.html">Notifier.adapters.SimplePush</a></li><li><a href="AeroGear.Notifier.adapters.stompws.html">Notifier.adapters.stompws</a></li><li><a href="AeroGear.Notifier.adapters.vertx.html">Notifier.adapters.vertx</a></li><li><a href="AeroGear.Pipeline.adapters.Rest.html">Pipeline.adapters.Rest</a></li>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="AeroGear.html">AeroGear</a></li><li><a href="navigator.html">navigator</a></li></ul><h3>Modules</h3><ul><li><a href="AeroGear.Auth.html">AeroGear.Auth</a></li><li><a href="AeroGear.Authorization.html">AeroGear.Authorization</a></li><li><a href="AeroGear.Crypto.html">AeroGear.Crypto</a></li><li><a href="AeroGear.DataManager.html">AeroGear.DataManager</a></li><li><a href="AeroGear.Notifier.html">AeroGear.Notifier</a></li><li><a href="AeroGear.Pipeline.html">AeroGear.Pipeline</a></li><li><a href="AeroGear.SimplePushClient.html">AeroGear.SimplePushClient</a></li><li><a href="AeroGear.UnifiedPushClient.html">AeroGear.UnifiedPushClient</a></li><li><a href="navigator.push.html">navigator.push</a></li><li><a href="navigator.setMessageHandler.html">navigator.setMessageHandler</a></li></ul><h3>Adapters</h3><ul><li><a href="AeroGear.Auth.adapters.Rest.html">Auth.adapters.Rest</a></li><li><a href="AeroGear.Authorization.adapters.OAuth2.html">Authorization.adapters.OAuth2</a></li><li><a href="AeroGear.DataManager.adapters.IndexedDB.html">DataManager.adapters.IndexedDB</a></li><li><a href="AeroGear.DataManager.adapters.Memory.html">DataManager.adapters.Memory</a></li><li><a href="AeroGear.DataManager.adapters.SessionLocal.html">DataManager.adapters.SessionLocal</a></li><li><a href="AeroGear.DataManager.adapters.WebSQL.html">DataManager.adapters.WebSQL</a></li><li><a href="AeroGear.Notifier.adapters.SimplePush.html">Notifier.adapters.SimplePush</a></li><li><a href="AeroGear.Notifier.adapters.stompws.html">Notifier.adapters.stompws</a></li><li><a href="AeroGear.Notifier.adapters.vertx.html">Notifier.adapters.vertx</a></li><li><a href="AeroGear.Pipeline.adapters.Rest.html">Pipeline.adapters.Rest</a></li>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Wed Dec 11 2013 09:53:30 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Fri Mar 07 2014 09:29:31 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>

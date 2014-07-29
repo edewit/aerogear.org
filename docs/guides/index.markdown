@@ -18,10 +18,6 @@ title: Guides
 * [Get Started With HTML5 Mobile Web Development](GetStartedHTML5MobileWeb)
 * [Get Started with Hybrid Application Frameworks](aerogear-cordova/HybridApplicationFrameworks)
 * [How to build AeroGear Android library](aerogear-android/HowToBuildAeroGearAndroidLibrary)
-* [Get Started With Android Development on the Command Line](GetStartedAndroid)
-* [Get Started With Android Development in Eclipse](GetStartedAndroidEclipse)
-* [Get Started With Android Development in Intellij](GetStartedAndroidIntellij)
-* [Get Started With Android Development in NetBeans](GettingStartedAndroidNetbeans)
 * [Get Started with iOS and Xcode](GetStartedwithAeroGearandXcode)
 * [Get Started with iOS and AeroGear Xcode Template](GetStartedwithAeroGearandXcodeTemplate)
 * [Deploying HTML5 Applications to Openshift](HTML5AppsToOpenshift)
@@ -35,6 +31,7 @@ title: Guides
 * [Tutorial: Apache Cordova and iOS Push Notifications](aerogear-push-cordova-ios)
 * [Tutorial: JS Push Notifications](aerogear-push-js)
 * [Tutorial: Android Push Notifications](aerogear-push-android)
+* [Tutorial: Chrome Packaged Apps Push Notifications](aerogear-push-chrome)
 * [Getting Started with the Java Sender API](GetStartedwithJavaSender)
 
 #### User Guides
